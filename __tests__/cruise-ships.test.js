@@ -10,5 +10,13 @@ describe('ship', () => {
         const ship = new Ship('Dover');
 
         expect(ship.startingPoint).toBe('Dover');
-     })
-})
+     });
+
+     it('can set sail', () => {
+        const ship = new Ship('Dover');
+
+        ship.setSail();
+
+        expect(ship.startingPoint).toBeFalsy();
+     });
+});
