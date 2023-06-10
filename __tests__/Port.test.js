@@ -2,35 +2,45 @@
 const Port = require('../src/Port.js');
 
 describe('Port', () => {
-    it('can be instantiated', () => {
-        expect(new Port()).toBeInstanceOf(Object);
-    });
-
+    describe('with ports and ships', () => {
+        let port;
+        let ship;
+        let titanic;
+        let queenMary;
+       
+        beforeEach(() => {
+         port = new Port('Dover');
+         ship = {};
+         titanic = {};
+         queenMary = {};
+       });
     it('has a name property', () => {
-        const port = new Port('Gloucester');
+       
 
-        expect(port.name).toBe('Gloucester');
+       expect(port.name).toBe('Dover');
     });
-
+    
     it('adds ship to a ports ships property when it docks', () => {
-        const port = new Port('Dover');
-        const ship = {};
+        
 
         port.addShip(ship);
 
         expect(port.ships).toContain(ship);
     });
-
+    
     it('can remove a ship', () => {
-        const port = new Port('Dover');
-        const titanic = {};
-        const queenMary = {};
+        
 
         port.addShip(titanic);
         port.addShip(queenMary);
         port.removeShip(queenMary);
 
         expect(port.ships).toEqual([titanic]);
+    });
+});
+    
+    it('can be instantiated', () => {
+        expect(new Port()).toBeInstanceOf(Object);
     });
 });
 
